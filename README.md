@@ -1,4 +1,0 @@
-slackware
-=========
-
-Java 
