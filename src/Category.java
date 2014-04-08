@@ -1,5 +1,3 @@
-package mx.edu.umg.personalkaban.model;
-
 public class Category {
 	public String description;
 

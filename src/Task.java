@@ -1,13 +1,5 @@
-package mx.edu.umg.personalkaban.model;
-
 import java.util.Date;
 
-/**
- * Group of actions related to specific goal.
- * 
- * @Cruz Eduardo
- * 
- */
 public class Task {
 	private String title;
 	private String description;
@@ -19,8 +11,33 @@ public class Task {
 	private Date createDate;
 
 	public Task() {
+		this("");
+		System.out.println("starting Task() ctor...");
+	}
+
+	public Task(String title) {
+		this(title, State.BACKLOG, (short) 1);
+		System.out.println("starting Task(String) ctor...");
+	}
+
+	public Task(String title, short priority) {
+		this(title, State.BACKLOG, priority);
+		System.out.println("starting Task(String, Priority) ctor...");
+	}
+
+	public Task(String title, State state) {
+		this(title, state, (short) 1);
+		System.out.println("starting Task(String, State) ctor...");
+	}
+
+	public Task(String title, State state, short priority) {
 		super();
-		this.title = "";
+		System.out.println("starting Task(String, State, Priority) ctor...");
+
+		this.title = title;
+		createDate = new Date();
+		this.priority = priority;
+		this.state = state;
 	}
 
 	public String getTitle() {
@@ -102,4 +119,13 @@ public class Task {
 		return false;
 	}
 
+	public boolean save() {
+		try {
+			Thread.sleep(1 * 1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		return true;
+
+	}
 }

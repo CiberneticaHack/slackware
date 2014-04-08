@@ -1,4 +1,3 @@
-package mx.edu.umg.personalkaban.model;
 
 import java.util.Arrays;
 
@@ -8,11 +7,7 @@ public class Dashboard implements IDashboard {
 	private transient Task[] tasks;
 	private transient int modCount = 0;
 
-	/**
-	 * Inserts the specified task at the specified position in this list. Shifts
-	 * the task currently at that position (if any) and any subsequent tasks to
-	 * the right (adds one to their indices).
-	 */
+	
 	public boolean add(Task task) {
 		ensureCapacity(size + 1);
 		tasks[size++] = task;
@@ -26,7 +21,7 @@ public class Dashboard implements IDashboard {
 			int newCapacity = (oldCapacity * 3) / 2 + 1;
 			if (newCapacity < minCapacity)
 				newCapacity = minCapacity;
-			// minCapacity is usually close to size, so this is a win:
+			
 			tasks = Arrays.copyOf(tasks, newCapacity);
 		}
 	}
@@ -48,11 +43,7 @@ public class Dashboard implements IDashboard {
 		return false;
 	}
 
-	/**
-	 * Private remove method that skips bounds checking and does not return the
-	 * value removed.
-	 * 
-	 */
+	
 	private void fastRemove(int index) {
 		modCount++;
 		int numMoved = size - index - 1;
