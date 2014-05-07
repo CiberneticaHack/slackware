@@ -1,27 +1,21 @@
-import java.util.Date;
-import java.util.Random;
+
+import java.awt.Dimension;
+
+import javax.swing.JFrame;
+
+import model.DashboardList;
+import model.IDashboard;
+import view.Window;
 
 public class Program {
 
 	public static IDashboard dashboard = new DashboardList();
 
 	public static void main(String[] args) throws Exception {
-		System.out.println("Start " + new Date());
-
-		Thread thread;
-		User user;
-		for (int i = 0; i < 15; i++) {
-			user = new User();
-			thread = new Thread(user);
-
-			thread.setName("Title " + i);
-			int priority = 1 + (int) (Math.random() * ((10 - 1) + 1));
-			thread.setPriority(priority);
-
-			thread.start();
-		}
-
-		System.out.println("End " + new Date());
+		JFrame window = new Window("Add task");
+		window.setMinimumSize(new Dimension(380, 340));
+		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		window.setVisible(true);
 	}
 
 }
